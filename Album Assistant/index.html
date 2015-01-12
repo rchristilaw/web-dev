@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Album Assistant</title>
+		<link href="styles/main.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<h1>Album Assistant</h1>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<form action="action_page.php">
+			Artist Name:<br>
+			<input type="text" id="searchValue" name="search">
+		</form>
+		<button onclick="searchArtist()">Search</button>
+		
+		<script>
+		
+			function searchArtist() {
+				var searchVal = document.getElementById("searchValue").value;
+				console.log("Search for " + searchVal);
+
+				
+				//var results = httpGet('https://itunes.apple.com/search?term=drake&entity=album&limit=2');
+				//console.log(results);
+				
+				
+				var resultsList = document.getElementById("searchResults");
+				
+				var listData = [ 'Blue' , 'Red' , 'White' , 'Green' , 'Black' , 'Orange'];
+				var numberOfListItems = listData.length;
+				for( var i =  0 ; i < numberOfListItems ; ++i){
+					
+						// create a <li> for each one.
+						var listItem = document.createElement("li");
+
+						// add the item text
+						listItem.innerHTML = listData[i];
+
+						// add listItem to the listElement
+						resultsList.appendChild(listItem);
+				}
+				
+			}
+			
+			function httpGet(theUrl)
+			{
+				var xmlHttp = null;
+
+				xmlHttp = new XMLHttpRequest();
+				xmlHttp.open( "GET", theUrl, false );
+				xmlHttp.send( null );
+				return "test";
+			}
+		</script>
+		<div>
+			<ul id="searchResults">
+		</div>
+		<footer>
+			2015 Ryan Christilaw
+		</footer>
+		
+	</body
+</html>
