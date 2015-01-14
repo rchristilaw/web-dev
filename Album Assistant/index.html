@@ -3,6 +3,8 @@
 	<head>
 		<title>Album Assistant</title>
 		<link href="styles/main.css" rel="stylesheet" type="text/css"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="Sources/main.js"></script>
 	</head>
 	<body>
 		<header>
@@ -16,51 +18,15 @@
 				</ul>
 			</nav>
 		</header>
-		<form action="action_page.php">
+		
+		
+		<form action="javascript:searchArtist()">
 			Artist Name:<br>
 			<input type="text" id="searchValue" name="search">
 		</form>
+		
 		<button onclick="searchArtist()">Search</button>
-		
-		<script>
-		
-			function searchArtist() {
-				var searchVal = document.getElementById("searchValue").value;
-				console.log("Search for " + searchVal);
 
-				
-				//var results = httpGet('https://itunes.apple.com/search?term=drake&entity=album&limit=2');
-				//console.log(results);
-				
-				
-				var resultsList = document.getElementById("searchResults");
-				
-				var listData = [ 'Blue' , 'Red' , 'White' , 'Green' , 'Black' , 'Orange'];
-				var numberOfListItems = listData.length;
-				for( var i =  0 ; i < numberOfListItems ; ++i){
-					
-						// create a <li> for each one.
-						var listItem = document.createElement("li");
-
-						// add the item text
-						listItem.innerHTML = listData[i];
-
-						// add listItem to the listElement
-						resultsList.appendChild(listItem);
-				}
-				
-			}
-			
-			function httpGet(theUrl)
-			{
-				var xmlHttp = null;
-
-				xmlHttp = new XMLHttpRequest();
-				xmlHttp.open( "GET", theUrl, false );
-				xmlHttp.send( null );
-				return "test";
-			}
-		</script>
 		<div>
 			<ul id="searchResults">
 		</div>
