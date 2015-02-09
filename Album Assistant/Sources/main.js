@@ -3,21 +3,12 @@ function searchArtist() {
 
 	$("#searchResults").empty();
 
+	var url = "http://localhost:5555/search/";
 
-	var url = "https://itunes.apple.com/search?callback=callback";
-	
-	var searchEntity = "album";
-	var searchAttribute = "allArtistTerm";
-	var searchLimit = 200;
 	var searchTerm = document.getElementById("searchValue").value;
 
-	url += "&entity=" + searchEntity;
-	//url += "&attribute=" + searchAttribute;
-	url += "&limit=" + searchLimit;
-	url += "&term=" + searchTerm;
-	
-
-
+	url += searchTerm;
+			console.log("test");
 	
 	$.ajax({
 		url:url,
@@ -25,6 +16,7 @@ function searchArtist() {
 		dataType: "jsonp",
 		success: function (data) {
 			console.log(data);
+			console.log("test");
 			for (var i = 0; i < data.results.length; i++) {   
 				var listItem = document.createElement("li");
 				listItem.innerHTML = "<a href='" + data.results[i].collectionViewUrl + "'>" + data.results[i].collectionName + "</a>";		
@@ -34,6 +26,15 @@ function searchArtist() {
 	});
 }
 
+function httpGet(theUrl)
+{
+    var xmlHttp = null;
+
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false );
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
 
 
 			function searchArtis1t() {
@@ -63,15 +64,7 @@ function searchArtist() {
 				
 			}
 			
-			function httpGet(theUrl)
-			{
-				var xmlHttp = null;
 
-				xmlHttp = new XMLHttpRequest();
-				xmlHttp.open( "GET", theUrl, false );
-				xmlHttp.send( null );
-				return "test";
-			}
 			
 			function loadXMLDoc() {
 				var xmlhttp;
