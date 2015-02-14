@@ -6,7 +6,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript" src="Sources/main.js"></script>
 	</head>
-	<body>
+	<body onload="searchLoaded()">
 		<header>
 			<nav>
 				<h1>Album Assistant</h1>
@@ -21,12 +21,6 @@
 			</nav>
 		</header>
 		
-		<div action="javascript:searchArtist()">
-			<pre>Artist Name:	</pre><input type="text" id="searchValue" name="search"> <br>
-			<pre>Genre:			</pre><input type="text" id="searchValue" name="search"><br>
-			<button onclick="searchArtist()">Search</button>
-		</div>
-
 		<div>
 			<ul id="searchResults">
 		</div>

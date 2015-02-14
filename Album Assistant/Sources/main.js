@@ -1,11 +1,22 @@
 function searchArtist() {
-	var resultsList = document.getElementById("searchResults");
 
+	var searchTerm = document.getElementById("searchValue").value;
+	
+	if (searchTerm.length > 0)
+	{
+		window.location = 'search.html?artist=' + searchTerm;
+
+	}
+}
+
+function searchLoaded(){
+	var resultsList = document.getElementById("searchResults");
+	
+	var searchTerm = getUrlParameters("id", "", true);
+	
 	$("#searchResults").empty();
 
 	var url = "http://localhost:5555/search/";
-
-	var searchTerm = document.getElementById("searchValue").value;
 
 	url += searchTerm;
 			console.log("test");
@@ -24,6 +35,35 @@ function searchArtist() {
 			}
 		}
 	});
+}
+
+
+function getUrlParameters(parameter, staticURL, decode){
+   /*
+    Function: getUrlParameters
+    Description: Get the value of URL parameters either from 
+                 current URL or static URL
+    Author: Tirumal
+    URL: www.code-tricks.com
+   */
+   
+   var currLocation = (staticURL.length)? staticURL : window.location.search,
+       parArr = currLocation.split("?")[1].split("&"),
+       returnBool = true;
+	   
+	   
+   
+   for(var i = 0; i < parArr.length; i++){
+        parr = parArr[i].split("=");
+        if(parr[0] == parameter){
+            return (decode) ? decodeURIComponent(parr[1]) : parr[1];
+            returnBool = true;
+        }else{
+            returnBool = false;            
+        }
+   }
+   
+   if(!returnBool) return false;  
 }
 
 function httpGet(theUrl)
