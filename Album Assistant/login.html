@@ -4,7 +4,7 @@
 		<title>Album Assistant</title>
 		<link href="styles/main.css" rel="stylesheet" type="text/css"/>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script type="text/javascript" src="Sources/main.js"></script>
+		<script type="text/javascript" src="Sources/login.js"></script>
 	</head>
 	<body>
 		<header>
@@ -12,7 +12,7 @@
 				<h1>Album Assistant</h1>
 				<ul>
 					<li><a href="index.html">Home</a></li>
-					<li><a href="login.html">Test Login</a></li>
+					<li><a href="http://localhost:5555/login/ryan">Test Login</a></li>
 					<li><a href="http://localhost:5555/sendemail">Test Email</a></li>
 					<li><a href="blog.html">Blog</a></li>
 					<li><a href="about.html">About</a></li>
@@ -21,10 +21,10 @@
 			</nav>
 		</header>
 		
-		<div action="javascript:searchArtist()">
-			<pre>Artist Name:	</pre><input type="text" id="searchValue" name="search"> <br>
-			<pre>Genre:			</pre><input type="text" id="searchValue" name="search"><br>
-			<button onclick="searchArtist()">Search</button>
+		<div action="javascript:login()">
+			<pre>User Name:	</pre><input type="text" id="userName" name="userName"> <br>
+			<pre>Password:	</pre><input type="text" id="userPass" name="userPass"><br>
+			<button onclick="login()">Login</button>
 		</div>
 
 		<div>

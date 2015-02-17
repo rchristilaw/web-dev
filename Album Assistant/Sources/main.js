@@ -1,3 +1,4 @@
+
 function searchArtist() {
 
 	var searchTerm = document.getElementById("searchValue").value;
@@ -5,21 +6,20 @@ function searchArtist() {
 	if (searchTerm.length > 0)
 	{
 		window.location = 'search.html?artist=' + searchTerm;
-
 	}
 }
 
 function searchLoaded(){
 	var resultsList = document.getElementById("searchResults");
 	
-	var searchTerm = getUrlParameters("id", "", true);
+	var searchTerm = getUrlParameters("artist", "", true);
 	
 	$("#searchResults").empty();
 
-	var url = "http://localhost:5555/search/";
+	var url = "http://localhost:5555/search/artist=";
 
 	url += searchTerm;
-			console.log("test");
+	console.log(url);
 	
 	$.ajax({
 		url:url,
@@ -46,7 +46,7 @@ function getUrlParameters(parameter, staticURL, decode){
     Author: Tirumal
     URL: www.code-tricks.com
    */
-   
+   console.log(window.location.search); 
    var currLocation = (staticURL.length)? staticURL : window.location.search,
        parArr = currLocation.split("?")[1].split("&"),
        returnBool = true;
